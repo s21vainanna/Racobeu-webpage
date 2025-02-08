@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Page</title>
+    <!-- Include Bootstrap CSS for styling -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles for the navigation bar */
+        .navbar-custom {
+            background-color: #007bff; /* Slightly blue color */
+        }
+        .navbar-custom .nav-link {
+            color: white !important; /* White text for navigation links */
+        }
+        .navbar-custom .nav-link:hover {
+            color: #d4d4d4 !important; /* Slightly lighter color on hover */
+        }
+        .logo {
+            height: 40px; /* Adjust logo size */
+            width: auto;
+        }
+
+        /* Custom styling to show dropdown on hover */
+        .nav-item.dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Optional: Style to make the dropdown look nice */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 1000;
+            display: none; /* Default: hide the dropdown */
+        }
+
+        .dropdown-menu.dropdown-menu-end {
+            right: 0; /* Aligns the menu to the right */
+            left: auto; /* Ensures it doesn’t overlap the left side */
+        }
+
+        .nav-item.dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Prevent the black dot (bullet points) from appearing in the dropdown menu */
+        .nav-item .dropdown-menu {
+            list-style-type: none; /* Remove bullets */
+            padding-left: 0; /* Remove any left padding */
+            margin: 0; /* Remove margin that could cause unwanted spacing */
+        }
+
+        /* Ensure no margin or padding on dropdown items */
+        .nav-item .dropdown-item {
+            padding: 10px 20px; /* Adjust padding for better readability */
+        }
+
+        /* Remove any default borders or outline */
+        .nav-item .dropdown-item:focus,
+        .nav-item .dropdown-item:hover {
+            background-color: #f8f9fa; /* Light background on hover */
+            color: #007bff; /* Change text color on hover */
+            text-decoration: none; /* Remove underline on hover */
+        }
+
+    </style>
+</head> 
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container-fluid">
+            <!-- Logo aligned to the left -->
+            <a class="navbar-brand" href="/">
+                <img src="/images/logo.png" alt="Logo" class="logo" style="height: 40px;"> <!-- Adjust height as needed -->
+            </a>
+            <!-- Navbar toggler for responsive layout -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <!-- Dropdown for Racobeu -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="/racobeu/selectRacobeu" id="navbarDropdown" role="button" aria-expanded="false">
+                            Par Racobeu
+                        </a>
+                        <!-- Use dropdown-menu class for the dropdown -->
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="racobeu/racobeuPartneri">Racobeu partneri</a></li>
+                            <li><a class="dropdown-item" href="#">Navarras publiskā universitāte</a></li>
+                            <li><a class="dropdown-item" href="#">Ventspils Augstskola</a></li>
+							<li><a class="dropdown-item" href="#">Ādama Mickeviča universitāte</a></li>
+							<li><a class="dropdown-item" href="#">Vidusskola Padre Moret – Irubide</a></li>
+							<li><a class="dropdown-item" href="#">Vidusskola Spark Academy</a></li>
+							<li><a class="dropdown-item" href="#">Ventspils 2. vidusskola</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Departments Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="departmentsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Departments
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="departmentsDropdown">
+                            <li><a class="dropdown-item" href="#">Submenu 1</a></li>
+                            <li><a class="dropdown-item" href="#">Submenu 2</a></li>
+                            <li><a class="dropdown-item" href="#">Submenu 3</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Scientific Research Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="ScientificResearchDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Scientific Research
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="ScientificResearchDropdown">
+                            <li><a class="dropdown-item" href="#">Submenu 1</a></li>
+                            <li><a class="dropdown-item" href="#">Submenu 2</a></li>
+                            <li><a class="dropdown-item" href="#">Submenu 3</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Radiotelescopes Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="radiotelescopesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Radiotelescopes
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="radiotelescopesDropdown">
+                            <li><a class="dropdown-item" href="#">Submenu 1</a></li>
+                            <li><a class="dropdown-item" href="#">Submenu 2</a></li>
+                            <li><a class="dropdown-item" href="#">Submenu 3</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- RadioAstronomy Institutions Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="RadioAstronomyInstitutionsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            RadioAstronomy Institutions
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="RadioAstronomyInstitutionsDropdown">
+                            <li><a class="dropdown-item" href="#">Submenu 1</a></li>
+                            <li><a class="dropdown-item" href="#">Submenu 2</a></li>
+                            <li><a class="dropdown-item" href="#">Submenu 3</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Events Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="EventsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Events
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="EventsDropdown">
+                            <li><a class="dropdown-item" href="#">Submenu 1</a></li>
+                            <li><a class="dropdown-item" href="#">Submenu 2</a></li>
+                            <li><a class="dropdown-item" href="#">Submenu 3</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-5">
+        <h1 class="text-center">Welcome to Our Portal</h1>
+        <p class="text-center">Explore the sections using the navigation bar above.</p>
+    </div>
+
+    <!-- Include Bootstrap JS (optional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
