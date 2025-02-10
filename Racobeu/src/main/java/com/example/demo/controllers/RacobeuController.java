@@ -18,17 +18,25 @@ public class RacobeuController {
 	@GetMapping("/selectRacobeu") //https://localhost:8080/racobeu/selectRacobeu       Fetches data(from productList) using a service, Adds data to the Model object, the view for example Thymeleaf accesses the data stored in the model
     public String selectRacobeu(Model model) throws Exception {
         model.addAttribute("racobeuList", racobeuService.selectAll());
-        return "racobeu-info-page";
+        return "about-us-page";
+    }
+	
+	@GetMapping("/News") //https://localhost:8080/racobeu/selectRacobeu       Fetches data(from productList) using a service, Adds data to the Model object, the view for example Thymeleaf accesses the data stored in the model
+    public String selectNews(Model model) throws Exception {
+        model.addAttribute("racobeuList", racobeuService.selectAll());
+        return "racobeu-news-page";
     }
 	
 	@GetMapping("/racobeuPartneri") //https://localhost:8080/racobeu/racobeuPartneri     
     public String selectRacoebuPartneri(Model model) throws Exception {
-		 String partnersText = "Projekta partneri: Navarras publiskā universitāte (UPNA), Spānija, Ventspils Augstskola (VeA), Latvija, "
-		            + "Ādama Mickeviča universitāte (AMU), Polija, vidusskola Padre Moret-Irubide Spānija, vidusskola Spark Academy, "
-		            + "Polija, Ventspils 2. vidusskola, Latvija.";
-
-		        model.addAttribute("partnersText", partnersText);
+		        model.addAttribute("partnersText");
         return "racobeuPartneri-info-page";
+    }
+	
+	@GetMapping("/racobeuAboutUs") //https://localhost:8080/racobeu/racobeuAboutUs     
+    public String selectInfoAbousUs(Model model) throws Exception {
+		        model.addAttribute("About-UsText");
+        return "about-us-page";
     }
 	
 	@GetMapping("/selectRadioteleskopi") //https://localhost:8080/racobeu/selectRadioteleskopi      

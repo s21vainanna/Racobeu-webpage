@@ -1,0 +1,442 @@
+body {
+  font-size: 16px;
+  color: #111111;
+  background-color: #f1f0ef;
+  font-family: 'Inter', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-custom {
+  background-color: #007bff; /* Slightly blue color */
+}
+
+.navbar-custom .nav-link {
+  color: white !important; /* White text for navigation links */
+}
+
+.navbar-custom .nav-link:hover {
+  color: #d4d4d4 !important; /* Slightly lighter color on hover */
+}
+/*
+.logo {
+  height: 40px; 
+  width: auto;
+}*/
+
+/* Custom styling to show dropdown on hover */
+.nav-item:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  align-content: center;
+  z-index: 1000;
+  display: none; /* Default: hide the dropdown */
+}
+/*
+.dropdown-menu.dropdown-menu-end {
+  right: 0; 
+  left: auto; 
+}*/
+
+
+
+/* Prevent the black dot (bullet points) from appearing in the dropdown menu */
+.nav-item .dropdown-menu {
+  list-style-type: none; /* Remove bullets */
+  padding-left: 0; /* Remove any left padding */
+  margin: 0; /* Remove margin that could cause unwanted spacing */
+}
+
+/* Ensure no margin or padding on dropdown items */
+.nav-item .dropdown-item {
+  padding: 10px 20px; /* Adjust padding for better readability */
+}
+
+/* Remove any default borders or outline */
+.nav-item .dropdown-item:focus,.nav-item .dropdown-item:hover {
+  background-color: #f8f9fa; /* Light background on hover */
+  color: #007bff; /* Change text color on hover */
+  text-decoration: none; /* Remove underline on hover */
+}
+
+/** HEADER **/
+#header-nav {
+  background-color: #343F63;
+  border-radius: 0;
+  border: 0;
+  margin-bottom: 20px;
+  /*  display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;*/
+}
+
+#logo-img {
+  background: url('../images/logo40x45.png') no-repeat;
+  width: 40px;
+  height: 45px;
+  margin: 10px 15px 10px 0;
+}
+
+.navbar-brand {
+  align-items: center;
+  display: flex;
+}
+
+.navbar-brand h1 { /* Racobeu name */
+  font-family: 'Lora', serif;
+  color: #557c3e;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px #222;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: .75;
+}
+
+.navbar-brand a {
+  text-decoration: none;
+}
+
+.navbar-toggler {
+  margin-left: auto;
+  border: 2px solid black;
+}
+
+#nav-list {
+  margin-top: 10px;
+}
+
+#nav-list a {
+  color: black;
+  text-align: center;
+}
+
+#nav-list a:hover {
+  background: #E7E7E7;
+}
+
+#nav-list a {
+  font-size: 1.3em;
+}
+
+#phone a { /* Phone number */
+  text-align: right;
+  padding-bottom: 0;
+}
+
+#phone div { /* We Deliver */
+  color: #557c3e;
+  text-align: right;
+  padding-right: 15px;
+}
+
+/*
+.container .jumbotron{
+    box-shadow: 0 0 50px #3F0C1F;
+    border: 2px solid #3F0C1F;
+}
+*/
+
+.jumbotron {
+  margin-bottom: 20px;
+}
+
+#menu-tile,#specials-tile,#map-tile {
+  height: 300px;
+  width: 100%;
+  margin-bottom: 15px;
+  position: relative;
+  border: 2px solid black;
+  overflow: hidden;
+}
+
+#menu-tile:hover, #specials-tile:hover, #map-tile:hover {
+  box-shadow: 0 1px 5px 1px #cccccc;
+}
+#menu-tile span, #specials-tile span, #map-tile span {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 1.6em;
+  text-transform: uppercase;
+  background-color: #000;
+  color: #fff;
+  opacity: 0.8;
+}
+
+#menu-tile {
+  background: url('../images/aboutUs1084x250.png') no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+#specials-tile {
+  background: url('../images/news250x334.jpg') no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+/********** Large devices only **********/
+@media (min-width: 1200px) {
+  .container .jumbotron {
+    background: url('../images/VSRC1200x800.png') no-repeat;
+    height: 800px;
+  }
+}
+
+/********** Medium devices only **********/
+@media (min-width: 768px) and (max-width: 1199px) {
+  /* Header */
+  #logo-img {
+    background: url('../images/logo40x45.png') no-repeat;
+    width: 40px;
+    height: 45px;
+    margin: 5px 5px 5px 0;
+  }
+
+  .container .jumbotron {
+    background: url('../images/pictures992.jpg') no-repeat;
+    height: 707px;
+  }
+
+  /* End Header */
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  /* Home Page */
+  .container .jumbotron {
+    background: url('../images/pictures768.jpg') no-repeat;
+    height: 547px;
+  }
+  /* End Home Page */
+}
+
+/********** Extra small devices only **********/
+@media (max-width: 767px) {
+  .container .jumbotron {
+	 background: url('../images/pictures640x455.jpg') no-repeat;
+	 height: 455px;
+  }	
+	
+  /* Header */
+  .navbar-brand {
+    padding-top: 10px;
+    height: 80px;
+  }
+
+  .navbar-brand h1 { /* Restaurant name */
+    padding-top: 10px;
+    font-size: 4vw; /* 1vw = 1% of viewport width */
+  }
+
+  #collapsable-nav a { /* Collapsed nav menu text */
+    font-size: 1.2em;
+    margin-right: 5px;
+  }
+
+  #collapsable-nav span { /* Collapsed nav menu glyph */
+    font-size: 1em;
+  }
+}
+
+#phone > a {
+  font-size: 1.5em;
+  display: block;
+  margin: 0 20px;
+  padding: 10px;
+  /*border: 2px solid #fff;*/
+  background-color: #f6b319;
+  color: #951c49;
+  text-align: center;
+}
+
+#deliver {
+  margin-top: 5px;
+  font-size: 0.7em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.panel-footer {
+  background-color: #3E4D9E;
+  padding-top: 35px;
+  padding-bottom: 30px;
+  margin-top: 30px;
+  border-top: 0;
+  font-family: sans-serif;
+  color: #FFFFFF;
+}
+
+.panel-footer div.row {
+  margin-bottom: 35px;
+}
+
+#European{
+	
+	height: 79px;
+}
+
+#Instagram{
+	height: 144px;
+}
+
+#hours > span, #address > span, #testimonials > span{
+  font-size: 1.3em;
+}
+
+#address p {
+  color: #557c3e;
+  font-size: 0.9em;
+  line-height: 1.8;
+  margin-top: 10px;
+}
+
+
+
+
+
+.category-tile {
+  position: relative;
+  border: 2px solid #3F0C1F;
+  overflow: hidden;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 15px;
+}
+
+.category-tile span {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  background-color: #000;
+  color: #fff;
+  opacity: 0.8;
+}
+
+.category-tile:hover {
+  box-shadow: 0 9px 45px 9px #000000;
+}
+
+#menu-categories-title + div {
+  margin-bottom: 50px;
+}
+
+.menu-item-tile {
+  margin-bottom: 25px;
+}
+
+.menu-item-tile hr {
+  width: 80%;
+}
+
+/* we are looking for menu-item-price that inside menu-item-tile*/
+.menu-item-tile .menu-item-price {
+  font-size: 1.1em;
+  text-align: right;
+  margin-top: -15px;
+  margin-right: -15px;
+}
+
+.menu-item-tile .menu-item-price span {
+  font-size: 16px;
+}
+
+.menu-item-photo {
+  position: relative;
+  border: 2px solid #3F0C1F;
+  overflow: hidden;
+  padding: 0;
+  margin-right: -15px;
+  margin-left: auto;
+  margin-bottom: 20px;
+  max-width: 250px;
+}
+
+.menu-item-photo div {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 80px;
+  background-color: #557c3e;
+  text-align: center;
+}
+
+.menu-item-description {
+  padding-right: 30px;
+  font-size: 19px;
+}
+
+h3.menu-item-title {
+  margin: 0 0 10px;
+}
+
+.menu-item-details {
+  /*font-size: .9em;*/
+  font-style: italic;
+}
+
+.menu-item-tile div {
+  font-family: sans-serif;
+}
+
+/********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
+@media (max-width: 479px) {
+  .container .jumbotron {
+	background: url('../images/pictures320x228.jpg') no-repeat;
+	height: 228px;
+	  }	
+	
+  /* Header */
+  .navbar-brand h1 { /* Restaurant name */
+    padding-top: 5px;
+    font-size: 6vw;
+  }
+
+  /* End Header */
+
+  /* Home page */
+  #menu-tile, #specials-tile {
+    width: 280px;
+    margin: 0 auto 15px;
+  }
+
+  .col-xxs-12 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    float: left;
+    width: 100%;
+  }
+}
+
+.custom-separator {
+    border: none; /* Remove default border */
+    height: 1px; /* Set thickness of the line */
+    background-color: black; /* Change color as needed */
+}
+
+/* Optional adjustments for width or alignment */
+.custom-separator {
+    width: 100%; /* Full-width separator */
+}
+
+.about-section h1 {
+	text-align: center;
+}

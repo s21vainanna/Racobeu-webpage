@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- using latest version of rendering engine-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About Us</title>
+	<link rel="stylesheet" href="/css/bootstrap.min.css"> <!-- relying on bootstrap files -->
+	<link rel="stylesheet" href="/css/styles.css"> <!-- my own styles which will override bootstrap.min.css because of cascading -->
+	<link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+</head> 
+<body>
+	<header>
+    <nav id="header-nav" class="navbar navbar-expand-lg navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <div id="logo-img" alt="Logo image"></div>
+				<div class="ms-3">
+					<h1>Racobeu</h1>
+				</div>
+            </a>
+         
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsable-nav" aria-controls="collapsable-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="collapsable-nav">
+                <ul id="nav-list" class="navbar-nav ms-auto">
+                    <!-- Dropdown for Racobeu -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="/racobeu/selectRacobeu" id="navbarDropdown" role="button" aria-expanded="false">
+                            Par Racobeu
+                        </a>
+                        <!-- Use dropdown-menu class for the dropdown -->
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="racobeu/racobeuPartneri">Racobeu partneri</a></li>
+                            <li><a class="dropdown-item" href="#">Navarras publiskā universitāte</a></li>
+                            <li><a class="dropdown-item" href="#">Ventspils Augstskola</a></li>
+							<li><a class="dropdown-item" href="#">Ādama Mickeviča universitāte</a></li>
+							<li><a class="dropdown-item" href="#">Vidusskola Padre Moret – Irubide</a></li>
+							<li><a class="dropdown-item" href="#">Vidusskola Spark Academy</a></li>
+							<li><a class="dropdown-item" href="#">Ventspils 2. vidusskola</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Departments Dropdown -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="departmentsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Departments
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="departmentsDropdown">
+                            <li><a class="dropdown-item" href="#"></a></li>
+                            <li><a class="dropdown-item" href="#"></a></li>
+                            <li><a class="dropdown-item" href="#"></a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Scientific Research Dropdown -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="ScientificResearchDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Scientific Research
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="ScientificResearchDropdown">
+                            <li><a class="dropdown-item" href="#"></a></li>
+                            <li><a class="dropdown-item" href="#"></a></li>
+                            <li><a class="dropdown-item" href="#"></a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Radiotelescopes Dropdown -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="radiotelescopesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Radiotelescopes
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="radiotelescopesDropdown">
+                            <li><a class="dropdown-item" href="#"></a></li>
+                            <li><a class="dropdown-item" href="#"></a></li>
+                            <li><a class="dropdown-item" href="#"></a></li>
+                        </ul>
+                    </li>
+
+                    <!-- RadioAstronomy Institutions Dropdown -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="RadioAstronomyInstitutionsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            RadioAstronomy Institutions
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="RadioAstronomyInstitutionsDropdown">
+                            <li><a class="dropdown-item" href="#"></a></li>
+                            <li><a class="dropdown-item" href="#"></a></li>
+                            <li><a class="dropdown-item" href="#"></a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Events Dropdown -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="EventsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Events
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="EventsDropdown">
+                            <li><a class="dropdown-item" href="#"></a></li>
+                            <li><a class="dropdown-item" href="#"></a></li>
+                            <li><a class="dropdown-item" href="#"></a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+	</header>
+	
+	<div class="container about-section">
+		    <h1>About Us</h1>
+			
+			<hr class="custom-separator">
+		       
+		    <p>Projekts: “RACOBEU: Radioastronomija. Sadarbība starp Eiropas universitātēm:
+			 Zinātnisko un tehnoloģisko prasmju attīstīšana, izmantojot astronomiju”, projekta
+			 Nr. 2023-1-ES01-KA220-HED-000155868 (RACOBEU), tiek īstenots ar programmas ERASMUS+ 
+			 atbalstu (KA220 Sadarbības partnerība augstākajā izglītībā).
+			 Projekta īstenošanas periods: 11.01.2023-31.10.2026. Projekts ir vērsts uz jauna
+			 izglītības modeļa definēšanu, kurā tiek integrētas zināšanas astronomijā un radioastronomijā.
+			 Projektā sadarbojas trīs universitātes, kur AMU Observatorija specializējas optiskajā astronomijā,
+			 VeA Ventspils starptautiskais radioastronomijas centrs (VSRC) specializējas radioastronomijā,
+			 savukārt UPNA specializējas antenās un trīs vidusskolas. Projekta ietvaros, sadarbībā ar 
+			 augstskolām caur inovatīvām mācību metodēm un praktisku darbošanos, skolotāji un skolēni apgūs 
+			 astronomijas un radioastronomijas prasmes ar mērķi nākotnē izveidot skolās izvēles mācību 
+			 priekšmetus astronomijā un radioastronomijā, veicinot skolēnu interesi par STEM karjeru. 
+			 Projekta rezultātā tiks izstrādātas astronomijas kursu augstskolām vadlīnijas, izveidoti mācību
+			 materiāli astronomijas un radioastronomijas mācību priekšmetiem skolās, īstenotas izglītojošas 
+			 aktivitātes izpratnes par STEM karjeru veicināšanai, kā arī kopienas izveide, kur veikt kopīgus
+			 novērojumus un īstenot skolēnu, studentu, skolotāju un pasniedzēju apmaiņas programmas.
+			 Projekta finansējums 250000 eiro, tostarp 57352 eiro VeA budžets.</p>
+
+			<hr class="custom-separator">
+			    
+			<div class="coordinator-info">
+			 
+			<h2>Navarras publiskā universitāte</h2>
+			        
+			<p>1987. gadā Navarras parlaments apstiprināja Navarras publiskas universitātes (UPNA) izveidi Pamplonā un Tudelā, Spānijā.
+			2023.-2024.mācību gadā UPNA studēja 10161 students. UPNA piedāvā 27 bakalaura, 36 maģistra un 16 doktora programmas.
+			RACOBEU projektā UPNA pārstāv Silvija Diaza Lūkasa. Pašlaik viņa ir pilntiesīga profesore Navarras Publiskās universitātes
+			Elektrotehnikas, elektronikas un sakaru inženierijas katedrā un pasniedz priekšmetus elektronikas un projektu jomā.
+			Silvija Diaza Lūkasa 2002. gadā ieguva telekomunikāciju inženieres titulu un 2007. gadā doktora grādu Navarras publiskajā
+			universitātē. 2003. un 2004. gadā viņa veica pirmsdoktorantūras pētījumus Kantabrijas Universitātes Santanderas Fotonikas grupā,
+			strādājot pie signālu apstrādes ar optisko šķiedru sensoru tīkliem. 2006. gadā viņa pabeidza pirmsdoktorantūras studijas Lozannas
+			federālā politehniskajā skolā (École Polytéchnique Fédérale de Lausanne), Šveicē, pētot dažādas procedūras un stratēģijas, lai paplašinātu
+			izplatītā Brillouin sensora darbības diapazonu. 2009. gadā viņš pabeidza pēcdoktorantūras studijas Batas Universitātes Fotonikas un fotonisko
+			materiālu centrā, Apvienotajā Karalistē, lai izstrādātu lāzerus un pastiprinātas fotonisko kristālšķiedru struktūras, izmantojot sadalītu
+			pastiprināšanu. Viņai ir vairāk nekā 70 publikāciju autore žurnālos un konferencēs, gan valsts, gan starptautiskā līmenī, kas saistītas ar 
+			optisko šķiedru tīkliem, lāzeriem un sensoriem. Kopš 2002. gada viņš veic pētniecisko darbu Navarras Publiskās universitātes Elektrotehnikas,
+			elektronisko un sakaru inženierijas katedras Optisko sakaru un elektronisko lietojumprogrammu grupā.
+			</p>
+			 <!-- Add more details if needed -->
+			        
+			 <!-- Example image placeholder for coordinator logo or picture -->
+			 <!--<picture>-->
+			 <!--<source media="(max-width:600px)" srcset="/images/coordinator-mobile.jpg">-->
+			 <!--<img src="/images/coordinator-desktop.jpg" alt="" style="">-->
+			 <!--</picture>-->
+			 
+			 <hr class="custom-separator">
+			 
+			 <h2>Ventspils Augstskola</h2>
+			 
+			 <p>Ventspils Augstskola (VeA) kopš 2013. gada 20. maija ir zinātniskās institūcijas statuss. Tā ir reģistrēta zinātnisko institūciju reģistrā,
+			 kas apliecina, ka augstskola ir izpildījusi valsts noteiktos kritērijus zinātniskajai institūcijai, tajā skaitā, vismaz pusei no akadēmiskā 
+			 personāla ir doktora zinātniskais grāds, augstskola izdod zinātniskos rakstus, tās rīcībā ir zinātniskā infrastruktūra. Augstskolā darbojas 
+			 Ekonomikas un pārvaldības, Tulkošanas studiju un Informācijas tehnoloģiju fakultāte, piedāvājot 15 pirmā līmeņa profesionālās augstākās izglītības, 
+			 bakalaura, maģistra un doktora līmeņa studiju programmas. Augstskolā studē aptuveni 800 studentu.VeA projektā pārstāv Ventspils Augstskolas
+			 Inženierzinātņu Institūts “Ventspils Starptautiskais radioastronomijas centrs” (turpmāk – VSRC), kas specializējas radioastronomijā.
+		     </p>
+			 
+			 <hr class="custom-separator">
+			 
+			 <h2>Ādama Mickeviča universitāte</h2>
+			 
+			 <p>Ādama Mickeviča universitāte (AMU) Poznaņā ir viens no labākajiem akadēmiskajiem centriem un pētniecības universitāte Polijā. Universitātē 
+			 strādā aptuveni 4000 akadēmiķu, un tajā ir vairāk nekā 40 000 studentu, kas mācās aptuveni 80 disciplīnās. AMU piedāvā izglītību klasiskajā
+			 astronomijā un astrofizikā, kā arī dziļākas zināšanas par jautājumiem, kas saistīti ar asteroīdu kustību un īpašībām. 3 gadu bakalaura studiju 
+			 laikā mūsu studenti papildus vispārējām astronomiskajām zināšanām apgūst praktiskās iemaņas astronomiskajos novērojumos, galvenokārt fotometriskajos
+			 un spektroskopiskajos. Viņi arī pabeidz padziļinātu kursu debess mehānikā, kas cita starpā nodarbojas ar debess ķermeņu trajektoriju noteikšanu un 
+			 prognozēšanu. AMU nodarbojas arī ar zvaigžņu astrofiziku, pēta galaktiku veidošanos, neitronu zvaigžņu un melno caurumu sadursmes un gravitācijas
+			 viļņu veidošanos.
+			 </p>
+			 
+			 <hr class="custom-separator">
+			 
+			 <h2>Vidusskola Padre Moret – Irubide</h2>
+			 
+			 <p>Padre Moret – Irubide, Pamplonā, Spānijā ir aktīva un mūsdienīga vidusskola, kurā daudzveidība, vienlīdzība un iekļaušana ir skolas pamatvērtības.
+			 Viduskola piedāvā audzēkņiem četru gadu obligāto vidējo izglītību līdz 16 gadu vecumam un divu gadu bakalaurāta studijas. Skolēni iestājas skolā 11 
+			 gadu vecumā un beidz 17 gadu vecumā ar bakalaurāta grādu.Padre Moret - Irubide  atkarība no priekšmeta mācības notiek arī angļu valodā.
+			 </p>
+			 
+			 <hr class="custom-separator">
+			 
+			 <h2>Vidusskola Padre Moret – Irubide</h2>
+			 
+			 <p>Vidusskola Spark Academy, Poznaņā, Polijā atver durvis uz labākajām universitātēm visā pasaulē. Vidusskola piedāvā uzlabot savas angļu valodas zināšanas,
+			 sagatavojieties starptautiskai karjerai un studijām, kā arī uz projektiem balstītu mācīšanos, lai iesaistītu un attīstītu patstāvīgas mācīšanās prasmes. 
+			 Spark Academy skolēns uzņemas atbildību par savu mācību procesu vai vēlas attīstīties šajā virzienā. Studenti, kuri gaida, ka viņus "turēs aiz rokas", var būt
+			 vīlušies. Tas nozīmē, ka skolotāji atbalsta, bet neprasa konkrētus rezultātus. Spark Academy skolēnam ir tiesības izlemt, kuri priekšmeti viņam ir vissvarīgākie
+			 un ar mazāku apņemšanos pieiet tiem, kas viņam ir mazsvarīgi. Audzēknis zina, ka vidusskolā nav pieņemama laiska šļūkšana citiem aiz muguras, vidusskolas noteikumu
+			 un vērtību neievērošana.  
+		 	 </p>
+			     
+			 <hr class="custom-separator">
+			 
+			 <h2>Ventspils 2. vidusskola</h2>
+			    
+			 <p>Ventspils 2. vidusskola ir mūsdienīga, vispārizglītojoša skola, kas nodrošina katram skolēnam kvalitatīvu izglītību, atbilstoši spējām un interesēm. Vidusskolā
+			 ir radīti labvēlīgi apstākļi tikumiskas personības izaugsmei, kura orientējas mūsdienu mainīgajā sabiedrībā, saglabājot savas tautas nacionālās vērtības. Skolā strādā
+			 56 pedagogi un mācās 503 audzēkņi. 
+			 </p>
+			 
+			 
+			 
+			 </div>
+			        
+	</div> 
+	
+	<footer class="panel-footer">
+		    <div class="container">
+		        <div class="row">
+		            <section id="hours" class="col-sm-4 col-md-4 col-lg-4">
+		               <span>Partners</span><br>
+					   <img id="European" src="/images/erasmus.png" alt="Pictures of Racobeu" class="img-fluid">
+		            </section>
+		            <section id="address" class="col-sm-4 col-md-4 col-lg-4">
+						<span>Instagram</span><br>
+						 <a href="https://www.instagram.com/racobeu/?locale=zh-TW&hl=am-et" target="_blank">
+						 <img id="Instagram" src="/images/instagram.jpg" alt="Pictures of Racobeu" class="img-fluid">
+						 </a>
+					</section>
+		            <section id="testimonials" class="col-sm-4 col-md-4 col-lg-4">
+					   <span>Participants</span><br>
+						<img id="upna" src="/images/upna.jpg" alt="Pictures of Racobeu" class="img-fluid">
+						<img id="upna" src="/images/vuas.png" alt="Pictures of Racobeu" class="img-fluid">
+						<img id="upna" src="/images/poznan.png" alt="Pictures of Racobeu" class="img-fluid">
+		   	        </section>
+		        </div>
+		        <div class="text-center mt-auto">&copy; RACOBEU Project. All rights reserved.</div>
+		    </div>    
+		</footer>		
+
+	    <!-- Include Bootstrap JS (optional) -->
+		<!-- jQuery (Bootstrap JS plugins depend on it) -->
+		<script src="/js/jquery-2.2.4.min.js"></script> <!-- jQuery before Bootstrap because Bootstrap's JavaScript components rely on jQuery to function properly -->
+		<script src="/js/bootstrap.min.js"></script> 
+		<script src="/js/script.js"></script> <!-- my own created file -->
+</body>
+</html>	
