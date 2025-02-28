@@ -27,12 +27,6 @@ public class RacobeuController {
         return "racobeu-news-page";
     }
 	
-	@GetMapping("/racobeuPartneri") //https://localhost:8080/racobeu/racobeuPartneri     
-    public String selectRacoebuPartneri(Model model) throws Exception {
-		        model.addAttribute("partnersText");
-        return "racobeuPartneri-info-page";
-    }
-	
 	@GetMapping("/racobeuAboutUs") //https://localhost:8080/racobeu/racobeuAboutUs     
     public String selectInfoAbousUs(Model model) throws Exception {
 		        model.addAttribute("About-UsText");
@@ -65,6 +59,4 @@ public class RacobeuController {
         return "events-info-page";
     }
 	
-	
-
 }

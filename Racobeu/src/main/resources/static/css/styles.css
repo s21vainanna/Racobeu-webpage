@@ -9,17 +9,18 @@ body {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+	/*outline: 1px solid red;*/
 }
 
-.navbar-custom {
+.navbar {
   background-color: #007bff; /* Slightly blue color */
 }
 
-.navbar-custom .nav-link {
+.navbar .nav-link {
   color: white !important; /* White text for navigation links */
 }
 
-.navbar-custom .nav-link:hover {
+.navbar .nav-link:hover {
   color: #d4d4d4 !important; /* Slightly lighter color on hover */
 }
 /*
@@ -118,7 +119,7 @@ body {
 
 #nav-list a {
   color: black;
-  text-align: center;
+  text-align: left;
 }
 
 #nav-list a:hover {
@@ -183,7 +184,7 @@ body {
 }
 
 #specials-tile {
-  background: url('../images/news250x334.jpg') no-repeat;
+  background: url('../images/bilde.jpeg') no-repeat;
   background-position: center;
   background-size: cover;
 }
@@ -191,8 +192,8 @@ body {
 /********** Large devices only **********/
 @media (min-width: 1200px) {
   .container .jumbotron {
-    background: url('../images/VSRC1200x800.png') no-repeat;
-    height: 800px;
+    background: url('../images/main-photo.jpeg') no-repeat;
+    height: 1600px;
   }
 }
 
@@ -207,8 +208,8 @@ body {
   }
 
   .container .jumbotron {
-    background: url('../images/pictures992.jpg') no-repeat;
-    height: 707px;
+    background: url('../images/main-photo.jpeg') no-repeat;
+    height: 1311px;
   }
 
   /* End Header */
@@ -217,8 +218,8 @@ body {
 @media (min-width: 768px) and (max-width: 991px) {
   /* Home Page */
   .container .jumbotron {
-    background: url('../images/pictures768.jpg') no-repeat;
-    height: 547px;
+    background: url('../images/main-photo.jpeg') no-repeat;
+    height: 1172px;
   }
   /* End Home Page */
 }
@@ -226,8 +227,8 @@ body {
 /********** Extra small devices only **********/
 @media (max-width: 767px) {
   .container .jumbotron {
-	 background: url('../images/pictures640x455.jpg') no-repeat;
-	 height: 455px;
+	 background: url('../images/main-photo.jpeg') no-repeat;
+	 height: 511px;
   }	
 	
   /* Header */
@@ -283,6 +284,61 @@ body {
   margin-bottom: 35px;
 }
 
+.container.narvarre-section {
+    flex: 1;  /* This makes the content area expand, pushing the footer down */
+}
+
+.narvarre-section h1 {
+	text-align: center;
+}
+
+.custom-separator-narvarre {
+    width: 50%; 
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+
+/* -----------------------------------------------------------------------------------*/
+
+container.ventspils-section {
+    flex: 1;  /* This makes the content area expand, pushing the footer down */
+}
+
+.ventspils-section h1 {
+	text-align: center;
+}
+
+.custom-separator-ventspils {
+    width: 50%; 
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+
+/* -----------------------------------------------------------------------------------*/
+
+container.adama-section {
+    flex: 1;  /* This makes the content area expand, pushing the footer down */
+}
+
+.adama-section h1 {
+	text-align: center;
+}
+
+.custom-separator-adama {
+    width: 50%; 
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+
+/* -----------------------------------------------------------------------------------*/
+
+/* Pushes the main content to take up space */
+.main-content {
+    flex-grow: 1;  /* Ensures it expands to push the footer down */
+}
+
+/* -----------------------------------------------------------------------------------*/
+
 #European{
 	
 	height: 79px;
@@ -305,11 +361,9 @@ body {
 
 
 
-
-
 .category-tile {
   position: relative;
-  border: 2px solid #3F0C1F;
+  border: 2px solid black;
   overflow: hidden;
   width: 200px;
   height: 200px;
@@ -398,8 +452,8 @@ h3.menu-item-title {
 /********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
 @media (max-width: 479px) {
   .container .jumbotron {
-	background: url('../images/pictures320x228.jpg') no-repeat;
-	height: 228px;
+	background: url('../images/iphone4.jpeg') no-repeat;
+	height: 267px;
 	  }	
 	
   /* Header */
@@ -433,10 +487,73 @@ h3.menu-item-title {
 }
 
 /* Optional adjustments for width or alignment */
-.custom-separator {
-    width: 100%; /* Full-width separator */
+.custom-separator-about {
+    width: 30%; 
+	margin-left: auto !important;
+	margin-right: auto !important;
 }
 
 .about-section h1 {
 	text-align: center;
+}
+
+
+.category-container {
+    text-align: center; /* Centers content horizontally */
+}
+
+.tile-text {
+    font-size: 14px; /* Adjust font size as needed */
+	margin-bottom: 15px;
+}
+
+.category-container a {
+    text-decoration: none;
+    color: #000;
+}
+
+#language {
+	
+}
+
+.lang-button-container {
+	position:relative;
+	top:-5px;
+	right:-200px;
+}
+
+.lang-button-container button {
+	background-color:#f0f0f0; /* Light gray background */
+	color:black; /* Text color */
+	padding-top:5px;
+	padding-bottom:5px;
+	padding-left:8px;
+	padding-right:8px;
+
+	border-radius:.25rem;
+
+	font-size:.75em;
+
+	cursor:pointer;
+
+	margin-left:.25em;
+
+	border:none;
+
+	box-shadow:none !important; /* Remove Bootstrap default shadow if needed */
+
+	transition-duration:.3s !important; /* Optional transition effect */
+}
+
+.lang-button-container button:hover {
+	background-color:#ccc !important; /* Change background on hover */
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+	height: 100%;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
 }

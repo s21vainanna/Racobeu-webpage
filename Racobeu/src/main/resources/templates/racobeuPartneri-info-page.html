@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="lv" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- using latest version of rendering engine-->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Racobeu Partneri</title>
+    <title>Racobeu</title>
 	<link rel="stylesheet" href="/css/bootstrap.min.css"> <!-- relying on bootstrap files -->
 	<link rel="stylesheet" href="/css/styles.css"> <!-- my own styles which will override bootstrap.min.css because of cascading -->
 	<link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet" type="text/css">
@@ -13,9 +13,9 @@
 	<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
 </head> 
 <body>
-	<header>
-    <nav id="header-nav" class="navbar navbar-expand-lg navbar-custom">
-        <div class="container">
+	<header>		
+    <nav id="header-nav" class="navbar navbar-expand-lg">
+		<div class="container">
             <a class="navbar-brand" href="/">
                 <div id="logo-img" alt="Logo image"></div>
 				<div class="ms-3">
@@ -30,26 +30,26 @@
             <div class="collapse navbar-collapse" id="collapsable-nav">
                 <ul id="nav-list" class="navbar-nav ms-auto">
                     <!-- Dropdown for Racobeu -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="/racobeu/selectRacobeu" id="navbarDropdown" role="button" aria-expanded="false">
-                            Par Racobeu
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="/racobeu/selectRacobeu" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							<span th:text="#{about.racobeu}"></span>
                         </a>
                         <!-- Use dropdown-menu class for the dropdown -->
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="racobeu/racobeuPartneri">Racobeu partneri</a></li>
-                            <li><a class="dropdown-item" href="#">Navarras publiskā universitāte</a></li>
-                            <li><a class="dropdown-item" href="#">Ventspils Augstskola</a></li>
-							<li><a class="dropdown-item" href="#">Ādama Mickeviča universitāte</a></li>
-							<li><a class="dropdown-item" href="#">Vidusskola Padre Moret – Irubide</a></li>
-							<li><a class="dropdown-item" href="#">Vidusskola Spark Academy</a></li>
-							<li><a class="dropdown-item" href="#">Ventspils 2. vidusskola</a></li>
+                            <li><a class="dropdown-item" href="racobeuPartneri" th:text="#{racobeu.partners}"></a></li>
+                            <li><a class="dropdown-item" href="narvarre" th:text="#{racobeu.narvarre}"></a></li>
+                            <li><a class="dropdown-item" href="ventspils" th:text="#{racobeu.ventspils}"></a></li>
+			    			<li><a class="dropdown-item" href="adama" th:text="#{racobeu.adama}"></a></li>
+         		    		<li><a class="dropdown-item" href="irubide" th:text="#{racobeu.irubide}"></a></li>
+			    			<li><a class="dropdown-item" href="spark" th:text="#{racobeu.spark}"></a></li>
+			    			<li><a class="dropdown-item" href="vidusskola" th:text="#{racobeu.vidusskola}"></a></li>
                         </ul>
                     </li>
 
                     <!-- Departments Dropdown -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" id="departmentsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Departments
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="departmentsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span th:text="#{racobeu.departments}"></span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="departmentsDropdown">
                             <li><a class="dropdown-item" href="#"></a></li>
@@ -59,9 +59,9 @@
                     </li>
 
                     <!-- Scientific Research Dropdown -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" id="ScientificResearchDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Scientific Research
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="ScientificResearchDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							<span th:text="#{racobeu.research}"></span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="ScientificResearchDropdown">
                             <li><a class="dropdown-item" href="#"></a></li>
@@ -71,9 +71,9 @@
                     </li>
 
                     <!-- Radiotelescopes Dropdown -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" id="radiotelescopesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Radiotelescopes
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="radiotelescopesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span th:text="#{racobeu.radiotelescopes}"></span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="radiotelescopesDropdown">
                             <li><a class="dropdown-item" href="#"></a></li>
@@ -83,9 +83,9 @@
                     </li>
 
                     <!-- RadioAstronomy Institutions Dropdown -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" id="RadioAstronomyInstitutionsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            RadioAstronomy Institutions
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="RadioAstronomyInstitutionsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span th:text="#{racobeu.institutions}"></span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="RadioAstronomyInstitutionsDropdown">
                             <li><a class="dropdown-item" href="#"></a></li>
@@ -95,9 +95,9 @@
                     </li>
 
                     <!-- Events Dropdown -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" id="EventsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Events
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="EventsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span th:text="#{racobeu.events}"></span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="EventsDropdown">
                             <li><a class="dropdown-item" href="#"></a></li>
@@ -105,38 +105,54 @@
                             <li><a class="dropdown-item" href="#"></a></li>
                         </ul>
                     </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+					<li class="nav-item lang-button-container float-right">
+					    <button type='button' id='lv-lang' onclick='changeLang("lv")'>LV</button>
+					</li>
+					<li class='nav-item lang-button-container float-right'>
+						<button type='button' id='en-lang' onclick='changeLang("en")'>EN</button> 
+					</li>
+					<li class="nav-item lang-button-container float-right">
+		            	<button type='button' id='lv-lang' onclick='changeLang("pl")'>PL</button>
+					</li>
+					<li class="nav-item lang-button-container float-right">
+		            	<button type='button' id='lv-lang' onclick='changeLang("es")'>ES</button>
+					</li>					
+                
+				</ul>
+				</div>
+			</div>
+		</nav>
 	</header>
+	
+	<div class="main-content">
+	
+	</div>
 
 	
-	
 	<footer class="panel-footer">
-		    <div class="container">
-		        <div class="row">
-		            <section id="hours" class="col-sm-4 col-md-4 col-lg-4">
-		               <span>Partners</span><br>
-					   <img id="European" src="/images/erasmus.png" alt="Pictures of Racobeu" class="img-fluid">
-		            </section>
-		            <section id="address" class="col-sm-4 col-md-4 col-lg-4">
-						<span>Instagram</span><br>
-						 <a href="https://www.instagram.com/racobeu/?locale=zh-TW&hl=am-et" target="_blank">
-						 <img id="Instagram" src="/images/instagram.jpg" alt="Pictures of Racobeu" class="img-fluid">
-						 </a>
+			<div class="container">
+			   <div class="row">
+			      <section id="hours" class="col-sm-4 col-md-4 col-lg-4">
+			            <span th:text="#{racobeu.partners}"></span><br>
+				        <img id="European" src="/images/erasmus.png" alt="Pictures of Racobeu" class="img-fluid">
+			       </section>
+			       <section id="address" class="col-sm-4 col-md-4 col-lg-4">
+						<span th:text="#{racobeu.instagram}"></span><br>
+						<a href="https://www.instagram.com/racobeu/?locale=zh-TW&hl=am-et" target="_blank">
+						<img id="Instagram" src="/images/instagram.jpg" alt="Pictures of Racobeu" class="img-fluid">
+						</a>
 					</section>
-		            <section id="testimonials" class="col-sm-4 col-md-4 col-lg-4">
-					   <span>Participants</span><br>
-						<img id="upna" src="/images/upna.jpg" alt="Pictures of Racobeu" class="img-fluid">
-						<img id="upna" src="/images/vuas.png" alt="Pictures of Racobeu" class="img-fluid">
-						<img id="upna" src="/images/poznan.png" alt="Pictures of Racobeu" class="img-fluid">
-								
-		   	        </section>
-		        </div>
-		        <div class="text-center mt-auto">&copy; RACOBEU Project. All rights reserved.</div>
-		    </div>    
-	</footer>
+			           <section id="testimonials" class="col-sm-4 col-md-4 col-lg-4">
+					   <span th:text="#{racobeu.participants}"></span><br>
+					   <img id="upna" src="/images/upna.jpg" alt="Pictures of Racobeu" class="img-fluid">
+					   <img id="upna" src="/images/vuas.png" alt="Pictures of Racobeu" class="img-fluid">
+					   <img id="upna" src="/images/poznan.png" alt="Pictures of Racobeu" class="img-fluid">
+							
+			   	     </section>
+			     </div>
+			   <div class="text-center mt-auto"&copy; th:text="#{racobeu.copyright}"></div>
+			</div>    
+	</footer>	
 
 <!-- Include Bootstrap JS (optional) -->
 <!-- jQuery (Bootstrap JS plugins depend on it) -->

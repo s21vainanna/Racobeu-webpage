@@ -4,7 +4,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-
 import com.example.demo.model.Racobeu;
 import com.example.demo.repo.RacobeuRepository;
 
@@ -45,9 +44,9 @@ public class RacobeuApplication {
 				racobeuRepository.save(r1);
 				
 				
+			
 				
 			}
 		};
 	}
-
 }
