@@ -6,10 +6,10 @@
     <title>Racobeu</title>
 	<link rel="stylesheet" href="/css/bootstrap.min.css"> <!-- relying on bootstrap files -->
 	<link rel="stylesheet" href="/css/styles.css"> <!-- my own styles which will override bootstrap.min.css because of cascading -->
-	<link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet" type="text/css">
-	<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montagu+Slab:opsz,wght@16..144,700&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Urbanist:wght@500&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-	<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
 	<script src="/js/jquery-2.2.4.min.js"></script> <!-- jQuery before Bootstrap because Bootstrap's JavaScript components rely on jQuery to function properly -->
 	<script src="/js/bootstrap.min.js"></script> 
 	<script src="/js/script.js"></script> <!-- my own created file -->
@@ -17,9 +17,7 @@
 
 <header th:fragment="header">		
 <nav id="header-nav" class="navbar navbar-expand-lg">
-	<div class="container">
 		<a class="navbar-brand" href="/">
-			<div id="logo-img" alt="Logo image"></div>
 			<div class="ms-3">
 				<h1>Racobeu</h1>
 			</div>
@@ -29,7 +27,7 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>
 
-		<div class="collapse navbar-collapse" id="collapsable-nav">
+		<div class="collapse navbar-collapse mx-4" id="collapsable-nav">
 			<ul id="nav-list" class="navbar-nav ms-auto">
 				<!-- Dropdown for Racobeu -->
 				<li class="nav-item dropdown">
@@ -122,22 +120,15 @@
 						<li><a class="dropdown-item" href="#"></a></li>
 					</ul>
 				</li>
-				<li class="nav-item lang-button-container float-right">
-					<button type='button' id='lv-lang' onclick='changeLang("lv")'>LV</button>
-				</li>
-				<li class='nav-item lang-button-container float-right'>
-					<button type='button' id='en-lang' onclick='changeLang("en")'>EN</button> 
-				</li>
-				<li class="nav-item lang-button-container float-right">
-					<button type='button' id='lv-lang' onclick='changeLang("pl")'>PL</button>
-				</li>
-				<li class="nav-item lang-button-container float-right">
-					<button type='button' id='lv-lang' onclick='changeLang("es")'>ES</button>
-				</li>					
-			
+
+				<div class="flex d-flex flex-row gap-1">
+						<button class="btn btn-primary" type='button' id='lv-lang' onclick='changeLang("lv")'>LV</button>
+						<button class="btn btn-primary" type='button' id='en-lang' onclick='changeLang("en")'>EN</button> 
+						<button class="btn btn-primary" type='button' id='lv-lang' onclick='changeLang("pl")'>PL</button>
+						<button class="btn btn-primary" type='button' id='lv-lang' onclick='changeLang("es")'>ES</button>
+				</div>					
 			</ul>
 			</div>
-		</div>
 	</nav>
 </header>
 
@@ -150,7 +141,7 @@
 			</section>
 			<section id="address" class="col-sm-4 col-md-4 col-lg-4">
 				<span th:text="#{racobeu.instagram}"></span><br>
-				 <a href="https://www.instagram.com/racobeu/?locale=zh-TW&hl=am-et" target="_blank">
+				 <a href="https://www.instagram.com/racobeu/" target="_blank">
 				 <img id="Instagram" src="/images/instagram.jpg" alt="Pictures of Racobeu" class="img-fluid">
 				 </a>
 			</section>
