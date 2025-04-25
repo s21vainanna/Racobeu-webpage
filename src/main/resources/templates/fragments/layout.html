@@ -132,27 +132,26 @@
 	</nav>
 </header>
 
-<footer th:fragment="footer" class="panel-footer">
-	<div class="container">
+<footer th:fragment="footer" class="panel-footer mt-auto">
+	<div class="container mt-2">
 		<div class="row">
-			<section id="hours" class="col-sm-4 col-md-4 col-lg-4">
+			<section id="hours" class="col-sm-3">
 			   <span th:text="#{racobeu.partners}"></span><br>
-			   <img id="European" src="/images/erasmus.png" alt="Pictures of Racobeu" class="img-fluid">
+			   <img width="300" src="/images/erasmus.png" alt="Pictures of Racobeu">
 			</section>
-			<section id="address" class="col-sm-4 col-md-4 col-lg-4">
+			<section id="address" class="col-sm-3">
 				<span th:text="#{racobeu.instagram}"></span><br>
 				 <a href="https://www.instagram.com/racobeu/" target="_blank">
-				 <img id="Instagram" src="/images/instagram.jpg" alt="Pictures of Racobeu" class="img-fluid">
+				 <img width="60" src="/images/instagram.png" alt="Pictures of Racobeu">
 				 </a>
 			</section>
-			<section id="testimonials" class="col-sm-4 col-md-4 col-lg-4">
+			<section id="testimonials" class="col-sm-6">
 			   <span th:text="#{racobeu.participants}"></span><br>
-				<img id="upna" src="/images/upna.jpg" alt="Pictures of Racobeu" class="img-fluid">
-				<img id="upna" src="/images/vuas.png" alt="Pictures of Racobeu" class="img-fluid">
-				<img id="upna" src="/images/poznan.png" alt="Pictures of Racobeu" class="img-fluid">
-				
-			   </section>
+			   <img width="160" src="/images/vuas.png" alt="Ventspils University of Applied Sciences">
+				<img width="140" src="/images/upna.png" alt="UPNA">
+				<img width="120" src="/images/poznan.png" alt="Poznan University">
+			</section>
 		</div>
-		<div class="text-center mt-auto "&copy; th:text="#{racobeu.copyright}"></div>
+		<div class="text-center mb-2 "&copy; th:text="#{racobeu.copyright}"></div>
 	</div>    
-</footer>	
+</footer>

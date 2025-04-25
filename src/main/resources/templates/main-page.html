@@ -4,43 +4,14 @@
 <body>
 	<th:block th:replace="~{fragments/layout :: header}"></th:block>
 
-    <div id="main-content" class="container">
-    <div class="jumbotron">
-       <!-- <img src="images/pictures768.jpg" alt="Pictures of Racobeu" class="img-fluid d-sm-block d-lg-block"> -->
-        </div>
-    </div>
-	
-	<div id="home-tiles" class="row">
-		
-		<div class="col-md-4 col-sm-6 col-xs-12">
-			<a href="racobeu/racobeuAboutUs">
-			<div id="menu-tile">
-				
-			<span th:text="#{racobeu.about}"></span>
-			</div>
-			</a>
-		</div>
-		<!-- ********************************************  -->
-		<div class="col-md-4 col-sm-6 col-xs-12">
-		     <a href="racobeu/News">
-		     <div id="specials-tile">
+	<h1 class="racobeu-title text-center text-white" style="font-size: 150px;">Racobeu</h1>
+	<h2 th:text="#{racobeu.title.description}" class="text-center text-white">Description</h2>
 
-		     <span th:text="#{racobeu.news}"></span>
-		     </div>
-			 </a>
-		    </div>
-			<!-- ********************************************  -->	
-		<div class="col-md-4 col-sm-6 col-xs-12">
-			 <a href=""></a>
-			 <div id="map-tile">
-
-			 <span th:text="#{racobeu.results}"></span>
-			 </div>
-			 </a>
-			</div>
-<!--	</div> -->
-			
+	<p th:text="#{racobeu.project.info}" class="mt-auto text-center text-white"></p>
 
 	<th:block th:replace="~{fragments/layout :: footer}"></th:block>
+
+	<!-- background img -->
+	<div class="jumbotron"></div>
 </body>
 </html>

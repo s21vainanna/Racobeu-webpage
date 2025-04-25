@@ -80,13 +80,6 @@ body {
     width: 100%;*/
 }
 
-#logo-img {
-  background: url('../images/logo40x45.png') no-repeat;
-  width: 40px;
-  height: 45px;
-  margin: 10px 15px 10px 0;
-}
-
 .navbar-brand {
   align-items: center;
   display: flex;
@@ -94,7 +87,7 @@ body {
 }
 
 .navbar-brand h1 { /* Racobeu name */
-  font-family: 'Urbanist', serif;
+  font-family: 'Space Mono', serif;
   color: #ffffff;
   font-size: 1.5em;
   text-transform: uppercase;
@@ -144,17 +137,6 @@ body {
   padding-right: 15px;
 }
 
-/*
-.container .jumbotron{
-    box-shadow: 0 0 50px #3F0C1F;
-    border: 2px solid #3F0C1F;
-}
-*/
-
-.jumbotron {
-  margin-bottom: 20px;
-}
-
 #menu-tile,#specials-tile,#map-tile {
   height: 300px;
   width: 100%;
@@ -192,67 +174,18 @@ body {
   background-size: cover;
 }
 
-/********** Large devices only **********/
-@media (min-width: 1200px) {
-  .container .jumbotron {
-    background: url('../images/main-photo.jpeg') no-repeat;
-    height: 1600px;
-  }
-}
-
-/********** Medium devices only **********/
-@media (min-width: 768px) and (max-width: 1199px) {
-  /* Header */
-  #logo-img {
-    background: url('../images/logo40x45.png') no-repeat;
-    width: 40px;
-    height: 45px;
-    margin: 5px 5px 5px 0;
-  }
-
-  .container .jumbotron {
-    background: url('../images/main-photo.jpeg') no-repeat;
-    height: 1311px;
-  }
-
-  /* End Header */
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  /* Home Page */
-  .container .jumbotron {
-    background: url('../images/main-photo.jpeg') no-repeat;
-    height: 1172px;
-  }
-  /* End Home Page */
-}
-
-/********** Extra small devices only **********/
-@media (max-width: 767px) {
-  .container .jumbotron {
-	 background: url('../images/main-photo.jpeg') no-repeat;
-	 height: 511px;
-  }	
-	
-  /* Header */
-  .navbar-brand {
-    padding-top: 10px;
-    height: 80px;
-  }
-
-  .navbar-brand h1 { /* Restaurant name */
-    padding-top: 10px;
-    font-size: 4vw; /* 1vw = 1% of viewport width */
-  }
-
-  #collapsable-nav a { /* Collapsed nav menu text */
-    font-size: 1.2em;
-    margin-right: 5px;
-  }
-
-  #collapsable-nav span { /* Collapsed nav menu glyph */
-    font-size: 1em;
-  }
+.jumbotron {
+  background: url('../images/irbene.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh; 
+  z-index: -10000;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 #phone > a {
@@ -274,17 +207,9 @@ body {
 }
 
 .panel-footer {
-  background-color: #3E4D9E;
-  padding-top: 35px;
-  padding-bottom: 30px;
-  margin-top: 30px;
-  border-top: 0;
+  background-color: #6c7ff8;
   font-family: sans-serif;
-  color: #FFFFFF;
-}
-
-.panel-footer div.row {
-  margin-bottom: 35px;
+  color: #000000;
 }
 
 .container.narvarre-section {
@@ -452,37 +377,6 @@ h3.menu-item-title {
   font-family: sans-serif;
 }
 
-/********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
-@media (max-width: 479px) {
-  .container .jumbotron {
-	background: url('../images/iphone4.jpeg') no-repeat;
-	height: 267px;
-	  }	
-	
-  /* Header */
-  .navbar-brand h1 { /* Restaurant name */
-    padding-top: 5px;
-    font-size: 6vw;
-  }
-
-  /* End Header */
-
-  /* Home page */
-  #menu-tile, #specials-tile {
-    width: 280px;
-    margin: 0 auto 15px;
-  }
-
-  .col-xxs-12 {
-    position: relative;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
-    float: left;
-    width: 100%;
-  }
-}
-
 .custom-separator {
     border: none; /* Remove default border */
     height: 1px; /* Set thickness of the line */
@@ -559,4 +453,9 @@ html, body {
 	margin: 0;
 	display: flex;
 	flex-direction: column;
+}
+
+.racobeu-title {
+  font-family: 'Space Mono', serif;
+  text-transform: uppercase;
 }
