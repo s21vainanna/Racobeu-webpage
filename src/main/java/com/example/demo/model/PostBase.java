@@ -31,7 +31,6 @@ public abstract class PostBase {
 	@Column
 	private String title;
 
-	@NotBlank
 	@Size(max = 500, message = "Short into must be less than 500 characters")
 	@Column
 	private String shortIntro;

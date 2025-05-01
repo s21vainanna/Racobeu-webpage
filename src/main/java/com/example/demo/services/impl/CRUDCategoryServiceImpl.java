@@ -21,8 +21,11 @@ public class CRUDCategoryServiceImpl implements CRUDCategoryService {
 	private CategoryRepository categoryRepository;
 
 	@Override
-	public ArrayList<Category> selectAllCategory() {
+	public ArrayList<Category> selectAllCategory() throws Exception{
 		String userLanguage = getCurrentLanguage(); 
+		if (userLanguage == null) {
+			throw new Exception("No language selected");
+		}
 		return (ArrayList<Category>) categoryRepository.findAllByLanguageLanguageCode(userLanguage);
 	}
 

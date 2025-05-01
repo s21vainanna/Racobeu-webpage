@@ -31,18 +31,17 @@
 		<div class="collapse navbar-collapse mx-4" id="collapsable-nav">
 			<ul id="nav-list" class="navbar-nav ms-auto">
 				<!-- create dropdown for each category -->
-				<li th:each="c: ${categories}" class="nav-item dropdown">
+				<li th:each="category: ${categories}" class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						<span th:text="${c.title}"></span>
+						<span th:text="${category.title}"></span>
 					</a>
-					<!-- te bus sadaļas -->
-					<ul class="dropdown-menu" >
-						<li><a class="dropdown-item" href="#">test</a></li>
-						<li><a class="dropdown-item" href="#"></a></li>
-						<li><a class="dropdown-item" href="#"></a></li>
+					<!-- create dropdown sections for each category -->
+					<ul th:each="section: ${category.getSections()}" class="dropdown-menu" >
+						<li><a class="dropdown-item" th:href="'/section/' + ${section.getSectionId()}" th:text="${section.getTitle()}">Section</a></li>
 					</ul>
 				</li>
 
+				<!-- language switcher buttons -->
 				<div class="flex d-flex flex-row gap-1">
 						<button class="btn btn-primary" type='button' id='lv-lang' onclick='changeLang("lv")'>LV</button>
 						<button class="btn btn-primary" type='button' id='en-lang' onclick='changeLang("en")'>EN</button> 

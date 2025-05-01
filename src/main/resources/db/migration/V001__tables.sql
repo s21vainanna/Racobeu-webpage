@@ -182,7 +182,7 @@ CREATE TABLE `section` (
   `section_id` int NOT NULL AUTO_INCREMENT,
   `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `image` mediumblob,
-  `short_intro` varchar(500) NOT NULL,
+  `short_intro` varchar(500),
   `text` text NOT NULL,
   `title` varchar(100) NOT NULL,
   `author_id` int NOT NULL,
