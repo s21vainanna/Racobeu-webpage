@@ -27,95 +27,17 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>
 
+		<!-- page navigation bar -->
 		<div class="collapse navbar-collapse mx-4" id="collapsable-nav">
 			<ul id="nav-list" class="navbar-nav ms-auto">
-				<!-- Dropdown for Racobeu -->
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="/racobeu/selectRacobeu" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						<span th:text="#{about.racobeu}"></span>
+				<!-- create dropdown for each category -->
+				<li th:each="c: ${categories}" class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						<span th:text="${c.title}"></span>
 					</a>
-					<!-- Use dropdown-menu class for the dropdown -->
-					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<li><a class="dropdown-item" href="/racobeuPartneri" th:text="#{racobeu.partners}"></a></li>
-						<li><a class="dropdown-item" href="/narvarre" th:text="#{racobeu.narvarre}"></a></li>
-						<li><a class="dropdown-item" href="/ventspils" th:text="#{racobeu.ventspils}"></a></li>
-						<li><a class="dropdown-item" href="/adama" th:text="#{racobeu.adama}"></a></li>
-						<li><a class="dropdown-item" href="/irubide" th:text="#{racobeu.irubide}"></a></li>
-						<li><a class="dropdown-item" href="/spark" th:text="#{racobeu.spark}"></a></li>
-						<li><a class="dropdown-item" href="/vidusskola" th:text="#{racobeu.vidusskola}"></a></li>
-					</ul>
-				</li>
-
-				<!-- Departments Dropdown -->
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="departmentsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						<span th:text="#{racobeu.departments}"></span>
-					</a>
-					<ul class="dropdown-menu" aria-labelledby="departmentsDropdown">
-						<li><a class="dropdown-item" href="#"></a></li>
-						<li><a class="dropdown-item" href="#"></a></li>
-						<li><a class="dropdown-item" href="#"></a></li>
-					</ul>
-				</li>
-
-				<!-- Scientific Research Dropdown -->
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="ScientificResearchDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						<span th:text="#{racobeu.research}"></span>
-					</a>
-					<ul class="dropdown-menu" aria-labelledby="ScientificResearchDropdown">
-						<li><a class="dropdown-item" href="#"></a></li>
-						<li><a class="dropdown-item" href="#"></a></li>
-						<li><a class="dropdown-item" href="#"></a></li>
-					</ul>
-				</li>
-
-				<!-- Radiotelescopes Dropdown -->
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="radiotelescopesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						<span th:text="#{racobeu.radiotelescopes}"></span>
-					</a>
-					<ul class="dropdown-menu" aria-labelledby="radiotelescopesDropdown">
-						<li><a class="dropdown-item" href="#">Radioteleskops Pico Veleta</a></li>
-						<li><a class="dropdown-item" href="#">RT-32 Irbenes radioteleskops</a></li>
-						<li><a class="dropdown-item" href="#">Sardīnijas radioteleskops SRT</a></li>
-						<li><a class="dropdown-item" href="#">Lovela radioteleskops</a></li>
-						<li><a class="dropdown-item" href="#">Efelsbergas radioteleskops</a></li>
-						<li><a class="dropdown-item" href="#">Vesterborkas sintēzes radioteleskops</a></li>
-						<li><a class="dropdown-item" href="#">Nancay radioteleskops Francijā</a></li>
-						<li><a class="dropdown-item" href="#">SKA masīva interferometrs</a></li>
-						<li><a class="dropdown-item" href="#">Atakamas ceļu meklēšanas eksperiments APEX</a></li>
-						<li><a class="dropdown-item" href="#">Atakamas lielais milimetru viļņu diapazona interferometrs ALMA</a></li>
-						<li><a class="dropdown-item" href="#">Eiropas VLBI tīkls EVN</a></li>
-						<li><a class="dropdown-item" href="#">Daudzelementu radiosakaru interferometru tīkls E-MERLIN</a></li>
-						<li><a class="dropdown-item" href="#">Zemo frekvenču masīvs LOFAR</a></li>
-						<li><a class="dropdown-item" href="#">Ziemeļu paplašinātais milimetru masīvs NOEMA</a></li>
-						<li><a class="dropdown-item" href="#">Eiropas pulsāru laika masīvs EPTA</a></li>
-						<li><a class="dropdown-item" href="#">Ziemeļamerikas nanohercu gravitācijas viļņu observatorija NANOGrav</a></li>
-						<li><a class="dropdown-item" href="#">Parkes pulsāru laika masīvs PPTA</a></li>
-						<li><a class="dropdown-item" href="#">Starptautiskais pulsāru laika masīvs IPTA</a></li>
-					</ul>
-				</li>
-
-				<!-- RadioAstronomy Institutions Dropdown -->
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="RadioAstronomyInstitutionsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						<span th:text="#{racobeu.institutions}"></span>
-					</a>
-					<ul class="dropdown-menu" aria-labelledby="RadioAstronomyInstitutionsDropdown">
-						<li><a class="dropdown-item" href="#"></a></li>
-						<li><a class="dropdown-item" href="#"></a></li>
-						<li><a class="dropdown-item" href="#"></a></li>
-					</ul>
-				</li>
-
-				<!-- Events Dropdown -->
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="EventsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						<span th:text="#{racobeu.events}"></span>
-					</a>
-					<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="EventsDropdown">
-						<li><a class="dropdown-item" href="#"></a></li>
+					<!-- te bus sadaļas -->
+					<ul class="dropdown-menu" >
+						<li><a class="dropdown-item" href="#">test</a></li>
 						<li><a class="dropdown-item" href="#"></a></li>
 						<li><a class="dropdown-item" href="#"></a></li>
 					</ul>
