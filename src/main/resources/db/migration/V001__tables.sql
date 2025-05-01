@@ -1,4 +1,5 @@
--- izveido tabulas datubaze
+-- izveido tabulas datubaze.
+-- izgūts no uzģenerētajām tabulām ar mysqldump
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
