@@ -12,11 +12,18 @@
 			<div class="mb-2">
 				<p>Select existing language</p>
 				<select class="form-select" aria-label="Default select example" onchange="changeId(this.value)">
-					<option th:each="lang : ${languages}" th:value="${lang.languageId}" th:text="${lang.name}"></option>
+					<option value="0">--- Create new Language ---</option>
+					<option th:each="lang : ${languages}" th:value="${lang.languageId}" th:text="${lang.name}"
+						th:selected="${lang.languageId} == ${id}"></option>
 				</select>
 			</div>
 
 			<div class="my-5"></div>
+
+			<div class="mb-2">
+				<label class="form-label mx-2">ID</label>
+				<input class="form-control" type="text" th:value="${id}" disabled/> 
+			</div>
 
 			<div class="mb-2">
 				<label class="form-label mx-2">Name</label>
@@ -31,7 +38,7 @@
 			</div>
 
 			<div>
-				<button class=" btn btn-primary mt-2" type="submit" title="Save">Save</button>
+				<button class=" btn btn-primary mt-2 w-100" type="submit" title="Save">Save</button>
 			</div>
 		</div>
 	</form>
@@ -39,7 +46,7 @@
 	<form action="#" th:action="@{/admin/languages/delete?id=__${id}__}" th:object="${language}" th:method="post"  >
 		<div class="form mx-4">
 			<div>
-				<button class=" btn btn-danger mt-2" type="submit" title="Delete">Delete</button>
+				<button class=" btn btn-danger mt-2 w-100" type="submit" title="Delete">Delete</button>
 			</div>
 		</div>
 	</form>

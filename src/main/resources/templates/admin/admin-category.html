@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="lv" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{fragments/layout-admin :: head}"></th:block>
+<body>
+	<th:block th:replace="~{fragments/layout-admin :: header}"></th:block>
+
+	<h1 class="text-center">Edit categories</h1>
+
+	<form action="#" th:action="@{/admin/categories/save?id=__${id}__}" th:object="${category}" th:method="post"  >
+
+		<div class="form mx-4">
+			<div class="mb-2">
+				<p>Select existing category</p>
+				<select class="form-select" aria-label="Default select example" onchange="changeId(this.value)">
+					<option value="0">--- Create new category ---</option>
+					<option th:each="cat : ${categories}" th:value="${cat.categoryId}" th:text="${cat.title}"
+						th:selected="${cat.categoryId} == ${id}"></option>
+				</select>
+			</div>
+
+			<div class="my-5"></div>
+
+			<div class="mb-2">
+				<label class="form-label mx-2">ID</label>
+				<input class="form-control" type="text" th:value="${id}" disabled/> 
+			</div>
+
+			<div class="mb-2">
+				<label class="form-label mx-2">Title</label>
+				<input class="form-control" type="text" th:field="*{title}"  /> 
+				<p th:if="${#fields.hasErrors('title')}" th:errors="*{title}"  ></p>
+			</div>
+
+			<div class="mb-2">
+				<label class="form-label mx-2">Language</label>
+				<select class="form-select" aria-label="Default select example" th:field="*{language}">
+					<option th:each="lang : ${languages}" th:value="${lang.languageId}" th:text="${lang.name}"
+						th:selected="${category.language != null} and ${lang.languageId} == ${category.language.languageId}"></option>
+				</select>
+				<p th:if="${#fields.hasErrors('language')}" th:errors="*{language}"  ></p>
+			</div>
+
+			<div>
+				<button class=" btn btn-primary mt-2 w-100" type="submit" title="Save">Save</button>
+			</div>
+		</div>
+	</form>
+
+	<form action="#" th:action="@{/admin/categories/delete?id=__${id}__}" th:object="${category}" th:method="post"  >
+		<div class="form mx-4">
+			<div>
+				<button class=" btn btn-danger mt-2 w-100" type="submit" title="Delete">Delete</button>
+			</div>
+		</div>
+	</form>
+</body>
+</html>

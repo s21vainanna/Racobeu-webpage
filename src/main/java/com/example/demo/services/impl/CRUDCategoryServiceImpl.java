@@ -10,6 +10,7 @@ import org.springframework.web.servlet.LocaleResolver;
 
 import com.example.demo.ifaces.CRUDCategoryService;
 import com.example.demo.model.Category;
+import com.example.demo.model.Language;
 import com.example.demo.repo.CategoryRepository;
 
 @Service
@@ -21,7 +22,7 @@ public class CRUDCategoryServiceImpl implements CRUDCategoryService {
 	private CategoryRepository categoryRepository;
 
 	@Override
-	public ArrayList<Category> selectAllCategory() throws Exception{
+	public ArrayList<Category> selectAllCategoryByCurrentLanguage() throws Exception{
 		String userLanguage = getCurrentLanguage(); 
 		if (userLanguage == null) {
 			throw new Exception("No language selected");
@@ -36,4 +37,40 @@ public class CRUDCategoryServiceImpl implements CRUDCategoryService {
         return currentLocale.getLanguage();
         
     }
+
+
+	@Override
+	public ArrayList<Category> selectAllCategory() {
+		return (ArrayList<Category>) categoryRepository.findAll();
+	}
+	@Override
+	public Category selectCategoryById(int id) throws Exception {
+		Category category = categoryRepository.findById(id).get();
+
+		if (category == null) {
+			throw new Exception("Category not found");
+		}
+		return category;
+	}
+
+
+	@Override
+	public Category saveCategory(Category category) {
+		Category newCategory = new Category();
+		newCategory.setTitle(category.getTitle());
+		newCategory.setLanguage(category.getLanguage());
+		return categoryRepository.save(newCategory);
+
+	}
+
+
+	@Override
+	public void deleteCategory(int id) throws Exception {
+		if (!categoryRepository.existsById(id)) {
+			throw new Exception("Category not found");
+		}
+
+		categoryRepository.deleteById(id);
+	}
+
 }

@@ -22,7 +22,7 @@ public class DropdownController {
 
     @GetMapping("/section/{sectionId}") // http://localhost:8080/section/1
     public String selectSection(@PathVariable("sectionId") int sectionId, Model model) throws Exception {
-        model.addAttribute("categories", categoryService.selectAllCategory());
+        model.addAttribute("categories", categoryService.selectAllCategoryByCurrentLanguage());
         model.addAttribute("section", sectionService.selectById(sectionId));
         return "section-page";
     }

@@ -19,7 +19,7 @@ public class HomeController {
 
 	@GetMapping("/")
     public String greet(Model model) throws Exception{
-        model.addAttribute("categories", categoryService.selectAllCategory());
+        model.addAttribute("categories", categoryService.selectAllCategoryByCurrentLanguage());
         return "main-page";
     }
 
