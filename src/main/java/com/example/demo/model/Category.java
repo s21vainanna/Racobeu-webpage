@@ -40,7 +40,7 @@ public class Category {
 	@Column
 	@NotBlank
 	@Size(max = 100, message = "Title must be less than 100 characters")
-	@Pattern(regexp = "[A-Z][a-z0-9 ]+", message = "Only letters and numbers allowed")
+	@Pattern(regexp = "[\\p{L}0-9 ]+", message = "Only letters and numbers allowed")
 	private String title;
 
 	// piekļut pie sadaļām caur kategorijas objektu

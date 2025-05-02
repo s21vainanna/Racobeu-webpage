@@ -39,7 +39,7 @@ public class Administrator{
 
 	@NotBlank
 	@Column
-	private String password;
+	private String password; // te nebus parole, bet gan paroles hash vertība
 
 	@Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP") //automatiski šodienas datumu
 	private Date registationDate;

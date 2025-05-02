@@ -32,12 +32,12 @@ public class Language {
 	@Column()
 	@Size(max = 100, message = "Name must be less than 100 characters")
 	@NotBlank
-	@Pattern(regexp = "[A-Z][a-z ]+", message = "Only letters allowed")
+	@Pattern(regexp = "[\\p{L} ]+", message = "Only letters allowed")
 	private String name;
 
 	@NotBlank
 	@Size(max = 2, message = "Code must be less than 2 characters")
-	@Pattern(regexp = "[A-Z][a-z ]+", message = "Only letters allowed")
+	@Pattern(regexp = "[\\p{L} ]+", message = "Only letters allowed")
 	@Column(unique = true)
 	private String languageCode;
 

@@ -10,6 +10,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -33,6 +34,7 @@ public class ContactUs{
 	@Column
 	@NotBlank
 	@Size(max = 100, message = "Name must be less than 100 characters")
+	@Pattern(regexp = "[\\p{L} ]+", message = "Only letters allowed")
 	private String name;
 
 	@NotBlank
