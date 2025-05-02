@@ -11,10 +11,6 @@ INSERT INTO language (name, language_code) VALUES ('Polski', 'pl');
 -- id: 4
 INSERT INTO language (name, language_code) VALUES ('Español', 'es');
 
--- ADMINISTROTORS
-
-INSERT INTO administrators (password, username) VALUES ('admin', 'admin');
-
 -- CATEGORY
 
 -- lv
