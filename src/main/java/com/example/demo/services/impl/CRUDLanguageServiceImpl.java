@@ -22,7 +22,7 @@ public class CRUDLanguageServiceImpl implements CRUDLanguageService {
 
 	@Override
 	public Language selectLanguageById(int id) throws Exception {
-		Language lang = languageRepository.findById(id).get();
+		Language lang = languageRepository.findById(id).orElse(null);
 
 		if (lang == null) {
 			throw new Exception("Language not found");

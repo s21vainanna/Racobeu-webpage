@@ -1,5 +1,7 @@
 package com.example.demo.controllers;
 
+import java.util.Base64;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.example.demo.ifaces.CRUDCategoryService;
 import com.example.demo.ifaces.CRUDSectionService;
+import com.example.demo.model.Section;
 
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -22,10 +25,31 @@ public class DropdownController {
 
     @GetMapping("/section/{sectionId}") // http://localhost:8080/section/1
     public String selectSection(@PathVariable("sectionId") int sectionId, Model model) throws Exception {
+        Section section = sectionService.selectById(sectionId);
         model.addAttribute("categories", categoryService.selectAllCategoryByCurrentLanguage());
-        model.addAttribute("section", sectionService.selectById(sectionId));
+        model.addAttribute("section", section);
+
+        // pārvērš attēlu no bytes[] uz base64, lai to  varētu parādīt caur HTML
+        if (section.getImage() == null || section.getImage().length == 0) {
+            model.addAttribute("imageBase64", null);
+        } else {
+            String base64Image = Base64.getEncoder().encodeToString(section.getImage());
+            model.addAttribute("imageBase64", base64Image);
+        }
+
+        // izgūst ID no youtube linka
+        if (section.getYoutubeVideo() != null) {
+            String videoId = null;
+            if (section.getYoutubeVideo().startsWith("https://www.youtube.com/watch?v=")) {
+                videoId = section.getYoutubeVideo().replace("https://www.youtube.com/watch?v=", "");
+            }
+            else if (section.getYoutubeVideo().startsWith("https://youtu.be/")) {
+                videoId = section.getYoutubeVideo().replace("https://youtu.be/", "");
+            }
+            model.addAttribute("youtubeVideoId", videoId);
+        }
+
         return "section-page";
     }
-
 
 }

@@ -2,6 +2,8 @@ package com.example.demo.model;
 
 import java.sql.Date;
 
+import org.hibernate.validator.constraints.URL;
+
 import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.FetchType;
@@ -42,18 +44,19 @@ public abstract class PostBase {
 	@Lob // atļauj glabāt attēlu
 	@Basic(fetch = FetchType.LAZY) // neieladet attelu uzreiz, bet tikai ja nepieciešams
     @Column(columnDefinition = "MEDIUMBLOB") // atļauj glabāt attēlu
-    private String image;
+    private byte[] image;
 
 
-	@NotNull
 	@Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP") // pēc noklusejuma šodienas datums
 	private Date createdDate;
 
 
-	@NotNull
 	@ManyToOne
 	@JoinColumn(name = "author_id")
 	private Administrator author; // lietotājs, kurš pievienoja šo sadaļu
 
-
+	@URL
+	@Size(max = 100, message = "Youtube video must be less than 100 characters")
+	@Column
+	private String youtubeVideo;
 }

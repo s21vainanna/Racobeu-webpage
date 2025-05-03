@@ -13,6 +13,11 @@ import com.example.demo.model.Administrator;
 import com.example.demo.model.AdministratorDetails;
 import com.example.demo.repo.AdministratorRepository;
 
+
+/*
+  Šī klase atļauj izmantot spring security administratora datus
+  no datubazes.   
+ */
 @Service
 public class AdministratorDetailsService implements UserDetailsService {
 

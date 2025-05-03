@@ -45,7 +45,7 @@ public class CRUDCategoryServiceImpl implements CRUDCategoryService {
 	}
 	@Override
 	public Category selectCategoryById(int id) throws Exception {
-		Category category = categoryRepository.findById(id).get();
+		Category category = categoryRepository.findById(id).orElse(null);
 
 		if (category == null) {
 			throw new Exception("Category not found");

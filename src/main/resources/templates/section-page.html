@@ -6,13 +6,23 @@
 		
 	<div class="main-content">
 		<div class="container adama-section">
-				<h1 th:text="${section.title}">Section Title</h1>
-				<hr class="custom-separator-adama">
-				<b><p th:text="${section.shortIntro}">Short text intro</p></b>
-				<p th:text="${section.text}">Long text</p>
+			<div class="text-center mb-4">
+				<img class="img-fluid" th:if="${imageBase64 != null}" th:src="'data:image/jpeg;base64,' + ${imageBase64}" style="max-height: 400px;" />
+			</div>
+			<h1 th:text="${section.title}">Section Title</h1>
+			<hr class="custom-separator-adama">
+			<b><p th:text="${section.shortIntro}">Short text intro</p></b>
+			<p th:text="${section.text}">Long text</p>
+
+			<div class="text-center mb-4">
+				<iframe th:if="${youtubeVideoId != null}" width="560" height="315" th:src="'https://www.youtube.com/embed/' + ${youtubeVideoId}"
+				title="YouTube video player" frameborder="0"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+				referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+			</div>
 		</div>
 	</div>
-	
+
 	<th:block th:replace="~{fragments/layout :: footer}"></th:block>
 </body>
 </html>

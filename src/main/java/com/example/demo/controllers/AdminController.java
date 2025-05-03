@@ -1,16 +1,24 @@
 package com.example.demo.controllers;
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.ifaces.CRUDCategoryService;
 import com.example.demo.ifaces.CRUDLanguageService;
+import com.example.demo.ifaces.CRUDSectionService;
+import com.example.demo.model.Administrator;
+import com.example.demo.model.AdministratorDetails;
 import com.example.demo.model.Category;
 import com.example.demo.model.Language;
+import com.example.demo.model.Section;
 
 import jakarta.validation.Valid;
 
@@ -26,6 +34,8 @@ public class AdminController {
 	private CRUDLanguageService languageService;
 	@Autowired
 	private CRUDCategoryService categoryService;
+	@Autowired
+	private CRUDSectionService sectionService;
 
 	@GetMapping("/admin") // http://localhost:8080/admin
 	public String adminTest() {
@@ -140,6 +150,76 @@ public class AdminController {
 
 		categoryService.deleteCategory(id);
 		return "redirect:/admin/categories";
+	}
+
+	// SECTION CRUD
+
+	@GetMapping("/admin/sections") // http://localhost:8080/admin/sections
+	public String adminCreateSections(Model model, @RequestParam(required = false) Integer id) throws Exception {
+		if (id != null && id != 0) {
+			// labot esošu
+			model.addAttribute("section", sectionService.selectSectionById(id));
+			model.addAttribute("id", id);
+		}
+		else {
+			// jauns
+			model.addAttribute("section", new Section());
+			model.addAttribute("id", 0);
+		}
+
+		model.addAttribute("sections", sectionService.selectAllSection());
+		model.addAttribute("categories", categoryService.selectAllCategory());
+		return "admin/admin-section";
+	}
+
+	@PostMapping("/admin/sections/save")
+	public String adminCreateUpdatesSections(@Valid Section section, BindingResult result,
+			@RequestParam(required = true) Integer id, Model model,
+			@RequestParam(name = "upload-image", required = false) MultipartFile file) throws Exception {
+		// parbauda validacijas kludas
+		if (result.hasErrors()) {
+			System.out.println(result);
+			// japievieno tos pašus atribūtus, kurus GET metodē, lai mainīgie būtu inicializēti
+			model.addAttribute("id", id);
+			model.addAttribute("section", section);
+			model.addAttribute("sections", sectionService.selectAllSection());
+			model.addAttribute("categories", categoryService.selectAllCategory());
+			return "admin/admin-section";
+		}
+
+		// nolasa MultipartFile attēlu kā byte[], jo datubāzē glabā byte[]
+		if (!file.isEmpty()) {
+			try {
+				section.setImage(file.getBytes());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+
+		// uzstāda lietotāju, kurš saglabāja datubāzē
+		AdministratorDetails administratorDetails = (AdministratorDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		section.setAuthor(administratorDetails.getAdministrator());
+
+		if (id == 0) {
+			sectionService.saveSection(section);
+		} else {
+			section.setSectionId(id);
+			sectionService.saveSection(section);
+		}
+
+		return "redirect:/admin/sections";
+	}
+
+	@PostMapping("/admin/sections/delete")
+	public String adminDeleteSection(@RequestParam(required = true) Integer id) throws Exception {
+		try {
+			Section section = sectionService.selectSectionById(id);
+		} catch (Exception e) {
+			return "redirect:/admin/sections";
+		}
+
+		sectionService.deleteSection(id);
+		return "redirect:/admin/sections";
 	}
 
 }
