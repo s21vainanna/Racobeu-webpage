@@ -12,12 +12,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.ifaces.CRUDCategoryService;
+import com.example.demo.ifaces.CRUDContactUsService;
 import com.example.demo.ifaces.CRUDLanguageService;
+import com.example.demo.ifaces.CRUDNewsService;
 import com.example.demo.ifaces.CRUDSectionService;
 import com.example.demo.model.Administrator;
 import com.example.demo.model.AdministratorDetails;
 import com.example.demo.model.Category;
+import com.example.demo.model.ContactUs;
 import com.example.demo.model.Language;
+import com.example.demo.model.NewsArticle;
 import com.example.demo.model.Section;
 
 import jakarta.validation.Valid;
@@ -36,6 +40,10 @@ public class AdminController {
 	private CRUDCategoryService categoryService;
 	@Autowired
 	private CRUDSectionService sectionService;
+	@Autowired
+	private CRUDNewsService newsArticleService;
+	@Autowired
+	private CRUDContactUsService contactUsService;
 
 	@GetMapping("/admin") // http://localhost:8080/admin
 	public String adminTest() {
@@ -220,6 +228,106 @@ public class AdminController {
 
 		sectionService.deleteSection(id);
 		return "redirect:/admin/sections";
+	}
+
+	// NEWS CRUD
+
+	@GetMapping("/admin/news") // http://localhost:8080/admin/news
+	public String adminCreateNews(Model model, @RequestParam(required = false) Integer id) throws Exception {
+		if (id != null && id != 0) {
+			// labot esošu
+			model.addAttribute("newsArticle", newsArticleService.selectById(id));
+			model.addAttribute("id", id);
+		}
+		else {
+			// jauns
+			model.addAttribute("newsArticle", new NewsArticle());
+			model.addAttribute("id", 0);
+		}
+
+		model.addAttribute("newsArticles", newsArticleService.selectAllNewsArticle());
+		model.addAttribute("languages", languageService.selectAllLanguage());
+		return "admin/admin-news";
+	}
+
+	@PostMapping("/admin/news/save")
+	public String adminCreateUpdatesNews(@Valid NewsArticle newsArticle, BindingResult result,
+			@RequestParam(required = true) Integer id, Model model,
+			@RequestParam(name = "upload-image", required = false) MultipartFile file) throws Exception {
+		// parbauda validacijas kludas
+		if (result.hasErrors()) {
+			// japievieno tos pašus atribūtus, kurus GET metodē, lai mainīgie būtu inicializēti
+			model.addAttribute("id", id);
+			model.addAttribute("newsArticle", newsArticle);
+			model.addAttribute("newsArticles", newsArticleService.selectAllNewsArticle());
+			model.addAttribute("languages", languageService.selectAllLanguage());
+			return "admin/admin-news";
+		}
+
+		// nolasa MultipartFile attēlu kā byte[], jo datubāzē glabā byte[]
+		if (!file.isEmpty()) {
+			try {
+				newsArticle.setImage(file.getBytes());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+
+		// uzstāda lietotāju, kurš saglabāja datubāzē
+		AdministratorDetails administratorDetails = (AdministratorDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		newsArticle.setAuthor(administratorDetails.getAdministrator());
+
+		if (id == 0) {
+			newsArticleService.saveNewsArticle(newsArticle);
+		} else {
+			newsArticle.setNewsArticleId(id);
+			newsArticleService.saveNewsArticle(newsArticle);
+		}
+
+		return "redirect:/admin/news";
+	}
+
+	@PostMapping("/admin/news/delete")
+	public String adminDeleteNews(@RequestParam(required = true) Integer id) throws Exception {
+		try {
+			NewsArticle newsArticle = newsArticleService.selectById(id);
+		} catch (Exception e) {
+			return "redirect:/admin/news";
+		}
+
+		newsArticleService.deleteNewsArticle(id);
+		return "redirect:/admin/news";
+	}
+
+	// CONTACT US CRUD
+
+	@GetMapping("/admin/contact-us") // http://localhost:8080/admin/contact-us
+	public String adminGetContactUs(Model model, @RequestParam(required = false) Integer id) throws Exception {
+		if (id != null && id != 0) {
+			// labot esošu
+			model.addAttribute("message", contactUsService.selectContactUsById(id));
+			model.addAttribute("id", id);
+		}
+		else {
+			// jauns
+			model.addAttribute("message", new ContactUs());
+			model.addAttribute("id", 0);
+		}
+
+		model.addAttribute("messages", contactUsService.selectAllContactUs());
+		return "admin/admin-contact-us";
+	}
+
+	@PostMapping("/admin/contact-us/delete")
+	public String adminDeleteContactus(@RequestParam(required = true) Integer id) throws Exception {
+		try {
+			ContactUs contactUs = contactUsService.selectContactUsById(id);
+		} catch (Exception e) {
+			return "redirect:/admin/contact-us";
+		}
+
+		contactUsService.deleteContactUs(id);
+		return "redirect:/admin/contact-us";
 	}
 
 }

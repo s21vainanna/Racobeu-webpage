@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="lv" xmlns:th="http://www.thymeleaf.org">
+<th:block th:replace="~{fragments/layout :: head}"></th:block>
+<body>
+	<th:block th:replace="~{fragments/layout :: header}"></th:block>
+
+	<h1 class="text-center" th:text="#{racobeu.contact-us.title}">Contact Us</h1>
+
+	<div th:if="${success}" class="alert alert-success text-center fs-4">
+		<p th:text="#{racobeu.contact-us.success}"></p>
+	</div>
+
+	<form action="#" th:action="@{/contact-us/save?id=__${id}__}" th:object="${contactUs}" th:method="post">
+
+		<div class="form mx-4">
+			<div class="mb-2">
+				<label class="form-label mx-2" th:text="#{racobeu.contact-us.your-name}">Your Name</label>
+				<input class="form-control" type="text" th:field="*{name}"  /> 
+				<p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"  ></p>
+			</div>
+
+			<div class="mb-2">
+				<label class="form-label mx-2" th:text="#{racobeu.contact-us.email}">E-mail</label>
+				<input class="form-control" type="text" th:field="*{email}"  /> 
+				<p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"  ></p>
+			</div>
+
+			<div class="mb-2">
+				<label class="form-label mx-2" th:text="#{racobeu.contact-us.message}">Message</label>
+				<textarea class="form-control" type="text" th:field="*{message}" rows="10"  /> 
+				<p th:if="${#fields.hasErrors('message')}" th:errors="*{message}"  ></p>
+			</div>
+
+			<div>
+				<button class=" btn btn-primary mt-2 w-100" type="submit" title="Save">Save</button>
+			</div>
+		</div>
+	</form>
+
+	<th:block th:replace="~{fragments/layout :: footer}"></th:block>
+</body>
+</html>

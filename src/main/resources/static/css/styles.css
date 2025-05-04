@@ -123,7 +123,7 @@ body {
 }
 
 #nav-list a {
-  font-size: 1.3em;
+  font-size: 1.11em;
 }
 
 #phone a { /* Phone number */
@@ -409,42 +409,7 @@ h3.menu-item-title {
     color: #000;
 }
 
-#language {
-	
-}
 
-.lang-button-container {
-	position:relative;
-	top:-5px;
-	right:-200px;
-}
-
-.lang-button-container button {
-	background-color:#f0f0f0; /* Light gray background */
-	color:black; /* Text color */
-	padding-top:5px;
-	padding-bottom:5px;
-	padding-left:8px;
-	padding-right:8px;
-
-	border-radius:.25rem;
-
-	font-size:.75em;
-
-	cursor:pointer;
-
-	margin-left:.25em;
-
-	border:none;
-
-	box-shadow:none !important; /* Remove Bootstrap default shadow if needed */
-
-	transition-duration:.3s !important; /* Optional transition effect */
-}
-
-.lang-button-container button:hover {
-	background-color:#ccc !important; /* Change background on hover */
-}
 
 html, body {
     width: 100%;
