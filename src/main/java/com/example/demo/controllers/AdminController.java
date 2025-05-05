@@ -23,6 +23,7 @@ import com.example.demo.model.ContactUs;
 import com.example.demo.model.Language;
 import com.example.demo.model.NewsArticle;
 import com.example.demo.model.Section;
+import com.example.demo.services.impl.AdministratorDetailsService;
 
 import jakarta.validation.Valid;
 
@@ -44,6 +45,8 @@ public class AdminController {
 	private CRUDNewsService newsArticleService;
 	@Autowired
 	private CRUDContactUsService contactUsService;
+	@Autowired
+	private AdministratorDetailsService adminService;
 
 	@GetMapping("/admin") // http://localhost:8080/admin
 	public String adminTest() {
@@ -328,6 +331,53 @@ public class AdminController {
 
 		contactUsService.deleteContactUs(id);
 		return "redirect:/admin/contact-us";
+	}
+
+	// ADMINISTRATORS CRUD
+
+	@GetMapping("/admin/administrators") // http://localhost:8080/admin/administrators
+	public String adminGetAdministrators(Model model, @RequestParam(required = false) Integer id) throws Exception {
+		if (id != null && id != 0) {
+			// labot esošu
+			model.addAttribute("admin", adminService.selectAdministratorById(id));
+			model.addAttribute("id", id);
+		}
+		else {
+			// jauns
+			model.addAttribute("admin", new Administrator());
+			model.addAttribute("id", 0);
+		}
+
+		model.addAttribute("admins", adminService.selectAllAdministrator());
+		return "admin/admin-admin";
+	}
+
+	@PostMapping("/admin/administrators/save")
+	public String adminCreateUpdatesAdministrator(@Valid Administrator admin, BindingResult result,
+			@RequestParam(required = true) Integer id, Model model) throws Exception {
+		// parbauda validacijas kludas
+		if (result.hasErrors()) {
+			// japievieno tos pašus atribūtus, kurus GET metodē, lai mainīgie būtu inicializēti
+			model.addAttribute("id", id);
+			model.addAttribute("admin", admin);
+			model.addAttribute("admins", adminService.selectAllAdministrator());
+			return "admin/admin-admin";
+		}
+
+		adminService.saveAdministrator(admin);
+		return "redirect:/admin/administrators";
+	}
+
+	@PostMapping("/admin/administrators/delete")
+	public String adminDeleteAdministrator(@RequestParam(required = true) Integer id) throws Exception {
+		try {
+			Administrator admin = adminService.selectAdministratorById(id);
+		} catch (Exception e) {
+			return "redirect:/admin/administrators";
+		}
+
+		adminService.deleteAdministrator(id);
+		return "redirect:/admin/administrators";
 	}
 
 }

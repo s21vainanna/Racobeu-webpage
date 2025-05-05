@@ -1,6 +1,7 @@
 package com.example.demo.services.impl;
 
 import java.sql.Date;
+import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -44,18 +45,39 @@ public class AdministratorDetailsService implements UserDetailsService {
         return new AdministratorDetails(admin);
     }
 
-	public Administrator createAdministrator(String username, String password) {
+	public Administrator saveAdministrator(Administrator admin) {
 		Administrator newAdministrator = new Administrator();
-		newAdministrator.setUsername(username);
+		newAdministrator.setId(admin.getId());
+		newAdministrator.setUsername(admin.getUsername());
 
 		// !!! nesaglabā paroli tā kā tā ievadīta, bet
 		// pārvēršam paroli uz paroles hash vertībū
-		String passwordHash = passwordEncoder.encode(password);
+		String passwordHash = passwordEncoder.encode(admin.getPassword());
 		newAdministrator.setPassword(passwordHash);
 		newAdministrator.setRegistationDate(new Date(System.currentTimeMillis()));
 
 		// saglabat datubaze
 		return repository.save(newAdministrator);
+	}
+
+	public ArrayList<Administrator> selectAllAdministrator() {
+		return (ArrayList<Administrator>) repository.findAll();
+	}
+
+	public Administrator selectAdministratorById(int id) throws Exception {
+		Administrator admin = repository.findById(id).orElse(null);
+
+		if (admin == null) {
+			throw new Exception("Administrator not found");
+		}
+		return admin;
+	}
+
+	public void deleteAdministrator(int id) throws Exception {
+		if (!repository.existsById(id)) {
+			throw new Exception("Administrator not found");
+		}
+		repository.deleteById(id);
 	}
 
 }

@@ -13,7 +13,7 @@
 			<p class="text-center text-muted" th:text="${section.author.username} + ' ' + ${section.createdDate}">Created by username</p>
 			<hr class="custom-separator-adama">
 			<b><p th:text="${section.shortIntro}">Short text intro</p></b>
-			<p th:text="${section.text}">Long text</p>
+			<p style="white-space: pre-line; line-height: 1.1;" th:text="${section.text}">Long text</p>
 
 			<div class="text-center mb-4">
 				<iframe th:if="${youtubeVideoId != null}" width="560" height="315" th:src="'https://www.youtube.com/embed/' + ${youtubeVideoId}"
