@@ -64,24 +64,27 @@
 <footer th:fragment="footer" class="panel-footer mt-auto">
 	<div class="container mt-2">
 		<div class="row">
-			<section id="hours" class="col-sm-3">
+			<section id="hours" class="col-sm-2">
 			   <span th:text="#{racobeu.partners}"></span><br>
-			   <img width="300" src="/images/erasmus.png" alt="Pictures of Racobeu">
+			   <img width="200" src="/images/erasmus.png" alt="Pictures of Racobeu">
 			</section>
-			<section id="address" class="col-sm-3">
+			<section id="testimonials" class="col-sm-9">
+			   <span th:text="#{racobeu.participants}"></span><br>
+			   <img width="160" src="/images/vuas.png" alt="Ventspils University of Applied Sciences">
+				<img width="140" src="/images/upna.png" alt="UPNA">
+				<img width="120" src="/images/poznan.png" alt="Poznan University">
+				<img width="110" src="/images/logo_irubide_1.jpg" alt="PADRE MORET IRUBIDE high school">
+				<img width="110" src="/images/spark.png" alt="Spark Academy">
+				<img width="100" src="/images/ventspils-2vsk.png" alt="Ventspils 2. vidusskola">
+			</section>
+			<section id="address" class="col-sm-1">
 				<span th:text="#{racobeu.instagram}"></span><br>
 				 <a href="https://www.instagram.com/racobeu/" target="_blank">
 				 <img width="60" src="/images/instagram.png" alt="Pictures of Racobeu">
 				 </a>
 			</section>
-			<section id="testimonials" class="col-sm-6">
-			   <span th:text="#{racobeu.participants}"></span><br>
-			   <img width="160" src="/images/vuas.png" alt="Ventspils University of Applied Sciences">
-				<img width="140" src="/images/upna.png" alt="UPNA">
-				<img width="120" src="/images/poznan.png" alt="Poznan University">
-			</section>
 		</div>
-		<div class="text-center mb-2 d-flex justify-content-center gap-4">
+		<div class="text-center mt-2 mb-2 d-flex justify-content-center gap-4">
 			<a class="text-black" href="/contact-us" th:text="#{racobeu.contact-us.title}"></a>
 			<div th:text="'&copy; ' + #{racobeu.copyright}"></div>
 		</div>
