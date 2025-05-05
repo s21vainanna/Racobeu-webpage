@@ -23,6 +23,13 @@ body {
 .navbar .nav-link:hover {
   color: #d4d4d4 !important; /* Slightly lighter color on hover */
 }
+
+.navbar .btn-language {
+  color: #25284e;
+  font-weight: bold;
+  border-color: #25284e;
+  background-color: #6c7ff8;
+}
 /*
 .logo {
   height: 40px; 
