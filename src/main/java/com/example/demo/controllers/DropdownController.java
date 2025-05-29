@@ -87,6 +87,7 @@ public class DropdownController {
 
     @GetMapping("/news") // http://localhost:8080/news
     public String selectNewslist(Model model) throws Exception {
+        model.addAttribute("categories", categoryService.selectAllCategoryByCurrentLanguage());
         model.addAttribute("newsArticles", newsArticleService.selectAllNewsArticleByCurrentLanguage());
         return "news-list";
     }
